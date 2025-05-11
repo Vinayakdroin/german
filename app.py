@@ -1,4 +1,4 @@
-import os
+mport os
 import logging
 from datetime import datetime as dt
 from flask import Flask
@@ -66,4 +66,5 @@ with app.app_context():
         app.logger.info("Admin user created")
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # use Render's port or 5000 locally
+    app.run(host="0.0.0.0", port=port, debug=True)
